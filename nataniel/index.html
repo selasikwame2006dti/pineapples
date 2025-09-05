@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Pineapple Farm Enterprise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'sans': ['Open Sans', 'sans-serif']
+                    },
+                    colors: {
+                        'primary-green': '#4daf4a',
+                        'secondary-green': '#2e8b57',
+                        'dark-green': '#1a5b2d',
+                        'accent-yellow': '#ffd700',
+                        'off-white': '#f4f4f4',
+                        'dark-gray': '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1666111277731-bf4a30246691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODEyNTZ8MHwxfHNlYXJjaHwzfHxBZnJpY2FuJTIwUGluZWFwcGxlc3xlbnwwfHx8fDE3NTUzNzAyNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+        }
+        .pineapple-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234daf4a' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-off-white text-dark-gray">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary-green w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-pineapple text-white text-2xl"></i>
+                </div>
+                <h1 class="font-playfair text-2xl font-bold text-dark-green">Nathaniel Pineapple Farm</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="font-semibold hover:text-primary-green transition">Home</a>
+                <a href="#" class="font-semibold hover:text-primary-green transition">About</a>
+                <a href="#" class="font-semibold hover:text-primary-green transition">Products</a>
+                <a href="#" class="font-semibold hover:text-primary-green transition">Gallery</a>
+                <a href="#" class="font-semibold hover:text-primary-green transition">Blog</a>
+                <a href="#" class="font-semibold hover:text-primary-green transition">Contact</a>
+            </nav>
+            
+            <div class="flex items-center">
+                <button class="md:hidden text-dark-gray">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <button class="hidden md:block bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-2 px-6 rounded-full btn-hover transition">
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-playfair text-4xl md:text-6xl font-bold text-white mb-6 animate-float">Premium Pineapples from Ghana</h1>
+            <p class="text-xl text-white max-w-2xl mx-auto mb-10">Sustainable farming practices producing the finest tropical pineapples for local and international markets</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-3 px-8 rounded-full text-lg btn-hover transition">
+                    Order Now
+                </button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-dark-green text-white font-bold py-3 px-8 rounded-full text-lg btn-hover transition">
+                    Partner With Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-dark-green mb-4">Our Story</h2>
+                <div class="w-20 h-1 bg-primary-green mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1558962563-130446d081cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODEyNTZ8MHwxfHNlYXJjaHw0fHxBZnJpY2FuJTIwUGluZWFwcGxlc3xlbnwwfHx8fDE3NTUzNzAyNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="font-playfair text-2xl font-bold text-dark-green mb-4">Sustainable Pineapple Farming Since 2005</h3>
+                    <p class="mb-6 text-lg">Founded by Nathaniel Asante, our farm has been dedicated to producing the highest quality pineapples using sustainable farming practices. Located in the fertile coastal region of Ghana, we combine traditional knowledge with modern agricultural techniques.</p>
+                    <p class="mb-6 text-lg">Our commitment to environmental stewardship and community development has made us a trusted partner for both local markets and international exporters.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent-yellow text-xl mr-2"></i>
+                            <span>Organic Farming Practices</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent-yellow text-xl mr-2"></i>
+                            <span>Fair Trade Certified</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent-yellow text-xl mr-2"></i>
+                            <span>Global Export Network</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-20 bg-off-white pineapples-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-dark-green mb-4">Our Pineapple Varieties</h2>
+                <p class="text-lg max-w-2xl mx-auto">We cultivate several premium pineapple varieties, each with unique characteristics and flavors</p>
+                <div class="w-20 h-1 bg-primary-green mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transition">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603047500379-91194662a160?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Golden Sweet Pineapple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-dark-green mb-2">Golden Sweet</h3>
+                        <p class="text-gray-600 mb-4">Our signature variety with exceptional sweetness and low acidity. Perfect for fresh consumption and juicing.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-primary-green">GHS 15.00/kg</span>
+                            <button class="bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-2 px-4 rounded-full btn-hover transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transition">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603048184004-8faf90d907a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Queen Victoria Pineapple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-dark-green mb-2">Queen Victoria</h3>
+                        <p class="text-gray-600 mb-4">Medium-sized fruit with golden-yellow flesh and excellent flavor balance. Popular for export markets.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-primary-green">GHS 18.00/kg</span>
+                            <button class="bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-2 px-4 rounded-full btn-hover transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transition">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603047500379-91194662a160?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Smooth Cayenne Pineapple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-dark-green mb-2">Smooth Cayenne</h3>
+                        <p class="text-gray-600 mb-4">Large fruit with pale yellow flesh and mild acidity. Ideal for canning and processing.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-primary-green">GHS 12.00/kg</span>
+                            <button class="bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-2 px-4 rounded-full btn-hover transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-dark-green mb-4">What Our Partners Say</h2>
+                <div class="w-20 h-1 bg-primary-green mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-off-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Michael Johnson</h4>
+                            <p class="text-gray-600">FreshFruit Imports, UK</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Nathaniel's pineapples are consistently the best we've sourced. The quality and sweetness are unmatched. Our customers love them!"</p>
+                    <div class="flex text-accent-yellow mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-off-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Sarah Williams</h4>
+                            <p class="text-gray-600">Tropical Delights, USA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The reliability and quality of Nathaniel Pineapple Farm's produce has made them our exclusive supplier for the past 5 years."</p>
+                    <div class="flex text-accent-yellow mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-off-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">David Osei</h4>
+                            <p class="text-gray-600">Accra Fruit Market</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"As a local distributor, I appreciate the consistent supply and exceptional quality. Nathaniel's pineapples are always in high demand."</p>
+                    <div class="flex text-accent-yellow mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-off-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-dark-green mb-4">Farm Gallery</h2>
+                <p class="text-lg max-w-2xl mx-auto">Take a look at our sustainable farming practices and beautiful pineapple fields</p>
+                <div class="w-20 h-1 bg-primary-green mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1598175822540-4354b4b9f0ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Pineapple Field" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1603048184004-8faf90d907a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Harvesting Pineapples" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1603047500379-91194662a160?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Pineapple Processing" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1598175822540-4354b4b9f0ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Farm Workers" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1603048184004-8faf90d907a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Pineapple Packaging" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1603047500379-91194662a160?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Pineapple Export" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1598175822540-4354b4b9f0ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Sustainable Farming" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1603048184004-8faf90d907a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Quality Control" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-green to-secondary-green">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mb-6">Ready to Experience Premium Pineapples?</h2>
+            <p class="text-white text-xl max-w-2xl mx-auto mb-10">Join our growing network of satisfied customers and partners worldwide</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-3 px-8 rounded-full text-lg btn-hover transition">
+                    Place Order
+                </button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-dark-green text-white font-bold py-3 px-8 rounded-full text-lg btn-hover transition">
+                    Request Quote
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-green text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-accent-yellow w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-pineapple text-dark-green text-xl"></i>
+                        </div>
+                        <h3 class="font-playfair text-xl font-bold">Nathaniel Pineapple Farm</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">Sustainable pineapple farming since 2005, producing premium tropical fruits for local and international markets.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-accent-yellow"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent-yellow"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent-yellow"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent-yellow"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-playfair text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Products</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Gallery</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-playfair text-xl font-bold mb-6">Our Products</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Golden Sweet Pineapples</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Queen Victoria Pineapples</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Smooth Cayenne Pineapples</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Organic Pineapple Juice</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent-yellow transition">Pineapple Processing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-playfair text-xl font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent-yellow"></i>
+                            <span>Coastal Region, Ghana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-accent-yellow"></i>
+                            <span>+233 20 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-accent-yellow"></i>
+                            <span>info@nathanielpineapple.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-accent-yellow"></i>
+                            <span>Mon-Fri: 8AM - 5PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2023 Nathaniel Pineapple Farm Enterprise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA Button -->
+    <button class="fixed bottom-6 right-6 bg-accent-yellow hover:bg-yellow-500 text-dark-green font-bold py-4 px-6 rounded-full shadow-lg btn-hover transition z-50">
+        <i class="fas fa-shopping-cart mr-2"></i> Order Now
+    </button>
+</body>
+</html>
