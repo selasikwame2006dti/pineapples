@@ -12,7 +12,7 @@
             font-family: 'Poppins', sans-serif;
         }
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1666111277731-bf4a30246691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODEyNTZ8MHwxfHNlYXJjaHwzfHxBZnJpY2FuJTIwUGluZWFwcGxlc3xlbnwwfHx8fDE3NTUzNzAyNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080');
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1666111277731-bf4a30046691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODEyNTZ8MHwxfHNlYXJjaHwzfHxBZnJpY2FuJTIwUGluZWFwcGxlc3xlbnwwfHx8fDE3NTUzNzAyNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080');
             background-size: cover;
             background-position: center;
         }
@@ -24,6 +24,7 @@
         .hover\:bg-pineapple-yellow-dark:hover { background-color: #e6c300; }
         .hover\:bg-pineapple-green-dark:hover { background-color: #55701c; }
 
+        /* Animation utilities */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -31,6 +32,17 @@
         @keyframes slideInUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
+        }
+        /* New, cooler animation */
+        @keyframes fadeInUpScale {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         .fade-in { animation: fadeIn 1s ease-out forwards; }
         .slide-in-up { animation: slideInUp 1s ease-out forwards; }
@@ -40,18 +52,18 @@
 
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-md shadow-md fixed w-full z-50 top-0 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="#" @click.prevent="activePage = 'home'; window.scrollTo(0,0);" class="text-2xl font-bold text-pineapple-green">
+                <a href="#" @click.prevent="activePage = 'home'; window.scrollTo(0,0);" class="text-xl sm:text-2xl font-bold text-pineapple-green">
                     Nathaniel's Farm
                 </a>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" @click.prevent="activePage = 'home'; window.scrollTo(0,0);" :class="{'text-pineapple-yellow font-bold': activePage === 'home', 'text-gray-600 hover:text-pineapple-green': activePage !== 'home'}" class="transition duration-300">Home</a>
-                    <a href="#about" @click.prevent="activePage = 'about'" :class="{'text-pineapple-yellow font-bold': activePage === 'about', 'text-gray-600 hover:text-pineapple-green': activePage !== 'about'}" class="transition duration-300">About Us</a>
-                    <a href="#products" @click.prevent="activePage = 'products'" :class="{'text-pineapple-yellow font-bold': activePage === 'products', 'text-gray-600 hover:text-pineapple-green': activePage !== 'products'}" class="transition duration-300">Products</a>
-                    <a href="#gallery" @click.prevent="activePage = 'gallery'" :class="{'text-pineapple-yellow font-bold': activePage === 'gallery', 'text-gray-600 hover:text-pineapple-green': activePage !== 'gallery'}" class="transition duration-300">Gallery</a>
-                    <a href="#blog" @click.prevent="activePage = 'blog'" :class="{'text-pineapple-yellow font-bold': activePage === 'blog', 'text-gray-600 hover:text-pineapple-green': activePage !== 'blog'}" class="transition duration-300">Blog</a>
-                    <a href="#contact" @click.prevent="activePage = 'contact'" :class="{'text-pineapple-yellow font-bold': activePage === 'contact', 'text-gray-600 hover:text-pineapple-green': activePage !== 'contact'}" class="transition duration-300">Contact</a>
+                    <a href="#home" @click.prevent="activePage = 'home'; window.scrollTo(0,0);" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'home', 'text-gray-600 hover:text-pineapple-green': activePage !== 'home'}" class="transition duration-300 pb-1">Home</a>
+                    <a href="#about" @click.prevent="activePage = 'about'" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'about', 'text-gray-600 hover:text-pineapple-green': activePage !== 'about'}" class="transition duration-300 pb-1">About Us</a>
+                    <a href="#products" @click.prevent="activePage = 'products'" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'products', 'text-gray-600 hover:text-pineapple-green': activePage !== 'products'}" class="transition duration-300 pb-1">Products</a>
+                    <a href="#gallery" @click.prevent="activePage = 'gallery'" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'gallery', 'text-gray-600 hover:text-pineapple-green': activePage !== 'gallery'}" class="transition duration-300 pb-1">Gallery</a>
+                    <a href="#blog" @click.prevent="activePage = 'blog'" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'blog', 'text-gray-600 hover:text-pineapple-green': activePage !== 'blog'}" class="transition duration-300 pb-1">Blog</a>
+                    <a href="#contact" @click.prevent="activePage = 'contact'" :class="{'text-pineapple-green font-bold border-b-2 border-pineapple-green': activePage === 'contact', 'text-gray-600 hover:text-pineapple-green': activePage !== 'contact'}" class="transition duration-300 pb-1">Contact</a>
                 </nav>
                 <div class="md:hidden">
                     <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-800 focus:outline-none">
@@ -78,37 +90,37 @@
         <div x-show="activePage === 'home'" id="home">
             <!-- Hero Section -->
             <section class="hero-bg min-h-screen flex items-center justify-center text-white text-center px-4">
-                <div class="space-y-6 max-w-3xl">
-                    <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight fade-in" style="animation-delay: 0.2s;">Fresh from Ekumfi’s Heart</h1>
-                    <p class="text-xl md:text-2xl font-light slide-in-up" style="animation-delay: 0.5s;">Premium Pineapples for the World</p>
-                    <div class="pt-6 space-x-4 slide-in-up" style="animation-delay: 0.8s;">
-                        <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-yellow hover:bg-pineapple-yellow-dark text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Order Now</a>
-                        <a href="#products" @click.prevent="activePage = 'products'" class="bg-transparent border-2 border-white hover:bg-white hover:text-pineapple-green text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Partner With Us</a>
+                <div class="space-y-6 max-w-4xl">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight opacity-0" style="animation: fadeInUpScale 1s ease-out 0.3s forwards;">Fresh from Ekumfi’s Heart</h1>
+                    <p class="text-lg sm:text-xl md:text-2xl font-light opacity-0" style="animation: fadeInUpScale 1s ease-out 0.6s forwards;">Premium Pineapples for the World</p>
+                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" style="animation: fadeInUpScale 1s ease-out 0.9s forwards;">
+                        <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-yellow hover:bg-pineapple-yellow-dark text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 w-full sm:w-auto">Order Now</a>
+                        <a href="#products" @click.prevent="activePage = 'products'" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 w-full sm:w-auto">Partner With Us</a>
                     </div>
                 </div>
             </section>
 
             <!-- Featured Products -->
-            <section class="py-20 bg-white">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">Our Pineapples</h2>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="text-center md:text-left slide-in-up" style="animation-delay: 0.2s;">
-                            <img src="/images/hero.jpg" alt="MD2 Pineapple" class="rounded-lg shadow-xl mx-auto md:mx-0 w-full">
+            <section class="py-16 md:py-20 bg-white">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">Our Pineapples</h2>
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div class="slide-in-up" style="animation-delay: 0.2s;">
+                            <img src="/images/hero.jpg" alt="MD2 Pineapple" class="rounded-lg shadow-xl w-full">
                         </div>
                         <div class="slide-in-up" style="animation-delay: 0.4s;">
-                            <h3 class="text-3xl font-bold mb-4">MD2 Variety</h3>
-                            <p class="text-lg text-gray-600 mb-6">Known for its exceptional sweetness and uniform size, the MD2 is a global favorite. Its golden flesh, low acidity, and long shelf life make it perfect for both fresh consumption and processing.</p>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">MD2 Variety</h3>
+                            <p class="text-base md:text-lg text-gray-600 mb-6">Known for its exceptional sweetness and uniform size, the MD2 is a global favorite. Its golden flesh, low acidity, and long shelf life make it perfect for both fresh consumption and processing.</p>
                             <a href="#products" @click.prevent="activePage = 'products'" class="text-pineapple-green font-bold hover:underline">Learn More &rarr;</a>
                         </div>
                     </div>
-                     <div class="grid md:grid-cols-2 gap-12 items-center mt-20">
+                     <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
                         <div class="text-center md:text-left md:order-2 slide-in-up" style="animation-delay: 0.2s;">
-                            <img src="/images/sugar.jpg" alt="Sugarloaf Pineapple" class="rounded-lg shadow-xl mx-auto md:mx-0 w-full">
+                            <img src="/images/sugar.jpg" alt="Sugarloaf Pineapple" class="rounded-lg shadow-xl w-full">
                         </div>
                         <div class="md:order-1 slide-in-up" style="animation-delay: 0.4s;">
-                            <h3 class="text-3xl font-bold mb-4">Sugarloaf Variety</h3>
-                            <p class="text-lg text-gray-600 mb-6">The Sugarloaf pineapple is prized for its soft, juicy white flesh and incredibly sweet, non-acidic flavor. It has an edible core, making it a delightful treat you can enjoy from top to bottom.</p>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">Sugarloaf Variety</h3>
+                            <p class="text-base md:text-lg text-gray-600 mb-6">The Sugarloaf pineapple is prized for its soft, juicy white flesh and incredibly sweet, non-acidic flavor. It has an edible core, making it a delightful treat you can enjoy from top to bottom.</p>
                              <a href="#products" @click.prevent="activePage = 'products'" class="text-pineapple-green font-bold hover:underline">Learn More &rarr;</a>
                         </div>
                     </div>
@@ -118,10 +130,10 @@
 
         <!-- About Us Page -->
         <div x-show="activePage === 'about'" id="about" class="fade-in">
-             <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">About Us</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow-lg">
+             <section class="py-16 md:py-20">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">About Us</h2>
+                    <div class="max-w-4xl mx-auto bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Story</h3>
                         <p class="text-gray-600 mb-6">Nathaniel Pineapple Farm Enterprise is a 5-acre pineapple farm located in Ekumfi Narkwa, Central Region of Ghana. The farm specializes in cultivating high-quality pineapples, leveraging Ekumfi’s strong reputation for producing premium pineapples. We are committed to supplying fresh, organic, and export-grade pineapples to both local and international markets. Our goal is to expand to 30-50 acres in the next five to ten years, which will include fruit juice processing and jams.</p>
                         
@@ -137,11 +149,11 @@
                         </div>
 
                         <h4 class="text-xl font-semibold mb-4 text-center">Our Values</h4>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full">Quality</span>
-                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full">Sustainability</span>
-                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full">Integrity</span>
-                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full">Assurance</span>
+                        <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full text-sm sm:text-base">Quality</span>
+                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full text-sm sm:text-base">Sustainability</span>
+                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full text-sm sm:text-base">Integrity</span>
+                            <span class="bg-pineapple-yellow/20 text-pineapple-green font-semibold py-2 px-4 rounded-full text-sm sm:text-base">Assurance</span>
                         </div>
                     </div>
                 </div>
@@ -150,38 +162,38 @@
 
         <!-- Products Page -->
         <div x-show="activePage === 'products'" id="products" class="fade-in">
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">Products & Services</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section class="py-16 md:py-20">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">Products & Services</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Product Card 1 -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                            <img src="images\fresh2.jpg" class="w-full h-56 object-cover" alt="Fresh Pineapples">
-                            <div class="p-6">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                            <img src="images/fresh2.jpg" class="w-full h-56 object-cover" alt="Fresh Pineapples">
+                            <div class="p-6 flex flex-col flex-grow">
                                 <h3 class="text-2xl font-bold mb-2">Fresh Pineapples</h3>
-                                <p class="text-gray-600 mb-4">We offer premium MD2 and Sugarloaf varieties, known for their exceptional sweetness and quality.</p>
+                                <p class="text-gray-600 mb-4 flex-grow">We offer premium MD2 and Sugarloaf varieties, known for their exceptional sweetness and quality.</p>
                                 <p class="text-lg font-semibold mb-4">Contact for Quote</p>
-                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center">Request Quote</a>
+                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center mt-auto">Request Quote</a>
                             </div>
                         </div>
                         <!-- Product Card 2 -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                              <img src="/images/support.jpg" class="w-full h-56 object-cover" alt="Wholesale Supply">
-                            <div class="p-6">
+                            <div class="p-6 flex flex-col flex-grow">
                                 <h3 class="text-2xl font-bold mb-2">Wholesale & Export</h3>
-                                <p class="text-gray-600 mb-4">Reliable supply of fresh, export-grade pineapples for businesses locally and internationally.</p>
+                                <p class="text-gray-600 mb-4 flex-grow">Reliable supply of fresh, export-grade pineapples for businesses locally and internationally.</p>
                                 <p class="text-lg font-semibold mb-4">Contact for Quote</p>
-                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center">Request Quote</a>
+                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center mt-auto">Request Quote</a>
                             </div>
                         </div>
                         <!-- Product Card 3 -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                              <img src="/images/custom.jpg" class="w-full h-56 object-cover" alt="Custom Orders">
-                            <div class="p-6">
+                            <div class="p-6 flex flex-col flex-grow">
                                 <h3 class="text-2xl font-bold mb-2">Custom Orders</h3>
-                                <p class="text-gray-600 mb-4">Tailored orders for hotels, restaurants, and supermarkets to meet your specific needs.</p>
+                                <p class="text-gray-600 mb-4 flex-grow">Tailored orders for hotels, restaurants, and supermarkets to meet your specific needs.</p>
                                 <p class="text-lg font-semibold mb-4">Contact for Quote</p>
-                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center">Request Quote</a>
+                                <a href="#contact" @click.prevent="activePage = 'contact'" class="bg-pineapple-green hover:bg-pineapple-green-dark text-white font-bold py-2 px-4 rounded-full transition duration-300 w-full block text-center mt-auto">Request Quote</a>
                             </div>
                         </div>
                     </div>
@@ -191,34 +203,18 @@
 
         <!-- Gallery Page -->
         <div x-show="activePage === 'gallery'" id="gallery" class="fade-in">
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">Gallery</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/images/view.jpg" alt="Gallery Image 1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/images/harvesting.jpg" alt="Gallery Image 2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                           <img src="/images/show.jpg" alt="Gallery Image 3" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                           <img src="/images/freshp.jpg" alt="Gallery Image 4" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/images/close.jpg" alt="Gallery Image 5" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                           <img src="/images/viewer.jpg" alt="Gallery Image 6" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                         <div class="overflow-hidden rounded-lg shadow-lg">
-                           <img src="/images/packing.jpg" alt="Gallery Image 7" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/images/export.jpg" alt="Gallery Image 8" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
-                        </div>
+            <section class="py-16 md:py-20">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">Gallery</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/view.jpg" alt="Gallery Image 1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/harvesting.jpg" alt="Gallery Image 2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/show.jpg" alt="Gallery Image 3" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/freshp.jpg" alt="Gallery Image 4" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/close.jpg" alt="Gallery Image 5" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/viewer.jpg" alt="Gallery Image 6" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/packing.jpg" alt="Gallery Image 7" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="/images/export.jpg" alt="Gallery Image 8" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"></div>
                     </div>
                 </div>
             </section>
@@ -226,17 +222,17 @@
 
         <!-- Blog Page -->
         <div x-show="activePage === 'blog'" id="blog" class="fade-in">
-             <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">Blog & News</h2>
-                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+             <section class="py-16 md:py-20">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">Blog & News</h2>
+                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Blog Post 1 -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                             <img src="https://images.pexels.com/photos/8939960/pexels-photo-8939960.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="w-full h-56 object-cover" alt="Blog Post 1">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">Health Benefits of Pineapples</h3>
                                 <p class="text-gray-600 mb-4">Discover the amazing health benefits packed into every bite of our fresh pineapples.</p>
-                                <a href="https://www.verywellhealth.com/pineapple-benefits-and-nutrition-11760016" class="text-pineapple-green font-bold hover:underline">Read More &rarr;</a>
+                                <a href="https://www.verywellhealth.com/pineapple-benefits-and-nutrition-11760016" class="text-pineapple-green font-bold hover:underline" target="_blank" rel="noopener noreferrer">Read More &rarr;</a>
                             </div>
                         </div>
                          <!-- Blog Post 2 -->
@@ -245,7 +241,7 @@
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">Pineapple Farming Techniques</h3>
                                 <p class="text-gray-600 mb-4">Learn about the sustainable farming practices we use to grow our premium pineapples.</p>
-                                <a href="https://afrimash.com/the-ultimate-guide-to-successful-pineapple-farming/" class="text-pineapple-green font-bold hover:underline">Read More &rarr;</a>
+                                <a href="https://afrimash.com/the-ultimate-guide-to-successful-pineapple-farming/" class="text-pineapple-green font-bold hover:underline" target="_blank" rel="noopener noreferrer">Read More &rarr;</a>
                             </div>
                         </div>
                         <!-- Blog Post 3 -->
@@ -264,10 +260,10 @@
 
         <!-- Contact Page -->
         <div x-show="activePage === 'contact'" id="contact" class="fade-in">
-             <section class="py-20 bg-gray-100">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-pineapple-green">Contact Us</h2>
-                    <div class="grid md:grid-cols-2 gap-12">
+             <section class="py-16 md:py-20 bg-gray-100">
+                <div class="container mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-pineapple-green">Contact Us</h2>
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                         <!-- Contact Form -->
                         <div class="bg-white p-8 rounded-lg shadow-lg">
                             <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
@@ -299,7 +295,6 @@
                                 <p class="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:nathanielhagan08@gmail.com" class="text-pineapple-green hover:underline">nathanielhagan08@gmail.com</a></p>
                                 <p class="text-gray-600"><strong>Location:</strong> Ekumfi Narkwa, Central Region, Ghana</p>
                                 <div class="mt-4 flex space-x-4">
-                                    <!-- Add your social media links here -->
                                     <a href="#" class="text-gray-500 hover:text-pineapple-green"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
                                     <a href="#" class="text-gray-500 hover:text-pineapple-green"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
                                     <a href="#" class="text-gray-500 hover:text-pineapple-green"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zM11.996 7.877a4.12 4.12 0 100 8.24 4.12 4.12 0 000-8.24zM12 14.252a2.252 2.252 0 110-4.504 2.252 2.252 0 010 4.504z" clip-rule="evenodd" /><path d="M16.862 7.002a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" /></svg></a>
@@ -317,8 +312,8 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-8">
+        <div class="container mx-auto px-4 sm:px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
                     <h3 class="text-xl font-bold mb-4">Nathaniel Pineapple Farm Enterprise</h3>
                     <p class="text-gray-400">Fresh from Ekumfi’s Heart – Premium Pineapples for the World.</p>
@@ -349,8 +344,8 @@
     <button x-data="{
         show: false,
         checkScroll() { this.show = window.scrollY > 400; }
-    }" @scroll.window="checkScroll()" x-show="show" x-transition @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-    class="fixed bottom-8 right-8 bg-pineapple-yellow text-gray-900 p-3 rounded-full shadow-lg hover:bg-pineapple-yellow-dark transition-colors duration-300 z-50">
+    }" @scroll.window.throttle="checkScroll()" x-show="show" x-transition @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+    class="fixed bottom-6 right-6 bg-pineapple-yellow text-gray-900 p-3 rounded-full shadow-lg hover:bg-pineapple-yellow-dark transition-colors duration-300 z-50">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
         </svg>
@@ -358,3 +353,4 @@
     
 </body>
 </html>
+
